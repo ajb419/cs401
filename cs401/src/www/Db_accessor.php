@@ -5,9 +5,9 @@ class Db_accessor {
 
   public function getConnection () {
     try {
-    //  mysql://b60f02ad1071a9:67fd2ad7@us-cdbr-east-02.cleardb.com/heroku_6d23e1e07b2f34e?reconnect=true
+    //  mysql://b042ba57e36170:18da13f8@us-cdbr-east-02.cleardb.com/heroku_f5ad45fc81a0fa3?reconnect=true
       //$conn = new PDO("mysql:host=localhost;dbname=cs401_db;port=8889", "root", "root");
-      $conn = new PDO("mysql:host=us-cdbr-east-02.cleardb.com;dbname=heroku_6d23e1e07b2f34e;", "b60f02ad1071a9", "67fd2ad7");
+      $conn = new PDO("mysql:host=us-cdbr-east-02.cleardb.com;dbname=heroku_f5ad45fc81a0fa3;", "b042ba57e36170", "18da13f8");
       return $conn;
     }
     catch (Exception $e) {

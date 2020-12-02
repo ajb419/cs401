@@ -18,27 +18,72 @@
     require_once "contactInfo.php";
   ?>
 
-  <!-- Thumbnail images -->
-  <div id="row">
-    <div class="column">
-      <img src="pics/bathroomRemodel.JPG" alt="full bathroom remodel">
+  <!-- Container for the image gallery -->
+  <div class="container">
+
+    <!-- Full-width images with number text -->
+    <div class="mySlides">
+      <div class="numbertext">1 / 6</div>
+        <img src="pics/bathroomRemodel.JPG">
     </div>
-    <div class="column">
-      <img src="pics/glassTileAfter.JPG" alt="glass tile backsplash and vent hood install ">
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 6</div>
+        <img src="pics/glassTileAfter.JPG">
     </div>
-    <div class="column">
-      <img src="pics/stoneFireplace.jpg" alt="floor to cieling stone on fireplace">
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 6</div>
+        <img src="pics/stoneFireplace.JPG">
     </div>
-    <div class="column">
-      <img src="pics/subwayCloseUp.JPG" alt="tile backsplash">
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 6</div>
+        <img src="pics/subwayCloseUp.JPG">
     </div>
-    <div class="column">
-      <img src="pics/garageClosetAfter.JPG" alt="garage closet build">
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 6</div>
+        <img src="pics/garageClosetAfter.JPG">
     </div>
-    <div class="column">
-      <img src="pics/tileFloor.JPG" alt="tile floor">
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 6</div>
+        <img src="pics/tileFloor.JPG">
     </div>
-  </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Image text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail images -->
+    <div id="row">
+      <div class="column">
+        <img class="demo" src="pics/bathroomRemodel.JPG" onclick="currentSlide(1)" alt="full bathroom remodel">
+      </div>
+      <div class="column">
+        <img class="demo" src="pics/glassTileAfter.JPG" onclick="currentSlide(2)" alt="glass tile backsplash and vent hood install ">
+      </div>
+      <div class="column">
+        <img class="demo" src="pics/stoneFireplace.jpg" onclick="currentSlide(3)" alt="floor to cieling stone on fireplace">
+      </div>
+      <div class="column">
+        <img class="demo" src="pics/subwayCloseUp.JPG" onclick="currentSlide(4)" alt="tile backsplash">
+      </div>
+      <div class="column">
+        <img class="demo" src="pics/garageClosetAfter.JPG" onclick="currentSlide(5)" alt="garage closet build">
+      </div>
+      <div class="column">
+        <img class="demo" src="pics/tileFloor.JPG" onclick="currentSlide(6)" alt="tile floor">
+      </div>
+    </div>
+</div>
+<script>showSlides(1);</script>
 
   <div id="personal_message">
     <h3>Let's get personal...</h3>

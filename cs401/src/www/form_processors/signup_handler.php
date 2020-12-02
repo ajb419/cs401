@@ -78,6 +78,8 @@
 
     if ( $_SESSION['bad_signup_name'] == "" and $_SESSION['bad_signup_email'] == "" and $_SESSION['bad_signup_password'] == "" and $_SESSION['bad_signup_phone'] == ""){
       // add email and password to database
+      $salt= "d6x<ja'ja4";
+      $_SESSION['signup_password'] = hash("sha256", ($_SESSION['signup_password'] + $salt));
       $db_accessor->addUser($_SESSION['signup_name'], $_SESSION['signup_email'], $_SESSION['signup_phone'], $_SESSION['signup_password']);
       //get the newly added user, newest user is first in list since getUsers() returns users by signup_date
       $users = $db_accessor->getUsers();

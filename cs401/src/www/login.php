@@ -48,12 +48,12 @@
       <label for="password">Password </label>
       <input type="text" id="password" name="password" placeholder="What's your password?">
       <div class="error"><?= $_SESSION['bad_login_password'] ?></div>
-
       <div class="error"><?= $_SESSION['bad_combo'] ?></div>
 
       <button name="submit" type="submit" id="contactSubmit"  data-submit="...Logging in">Login</button>
 
       <div class="success"><?= $_SESSION['login_success'] ?></div>
+
     </form>
   </div>
 

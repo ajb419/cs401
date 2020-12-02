@@ -1,8 +1,10 @@
 <?php
+//These display errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
   session_start();
-
   require_once '../Db_accessor.php';
-  require_once '../User.php';
 
   $db_accessor = new Db_accessor();
 
@@ -10,9 +12,9 @@
   $_SESSION['bad_login_email'] = $_SESSION['bad_login_password'] = $_SESSION['bad_combo'] = "";
   $_SESSION['login_success'] = "";
   $_SESSION['login_email'] = $_SESSION['login_password'] = "";
-  $_SESSION['user'] = "";
+  $_SESSION['username'] = $_SESSION['user_ps'] = "";
 
-  $users = $user = "";
+  $users =  "";
 
   //form is submitted with POST method
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -32,12 +34,12 @@
         $users = $db_accessor->getUsers();
         foreach ($users as $next) {
           if($next['email'] == $_SESSION['login_email']){
-            $user = new User($next['name'], $next['id'], $next['email'], $next['phone'], $next['password'], $next['signup_date']);
-            $_SESSION['user'] = "user";
+            $_SESSION['user_ps'] = $next['password'];
+            $_SESSION['username'] = $next['email'];
             break;
           }
         }
-        if ($user == ""){
+        if ($_SESSION['username'] == ""){
           $_SESSION['bad_combo'] = "*Incorrect email or password";
         }
       }
@@ -53,7 +55,9 @@
         $_SESSION['bad_login_password'] = "*Please enter a valid password between 7 and 20 characters";
       }
       //check if password in db
-      if ($user != "" and $user->getPassword() == $_SESSION['login_password']) {
+      $salt= "d6x<ja'ja4";
+      $_SESSION['login_password'] = hash("sha256", ($_SESSION['login_password'] + $salt));
+      if ($_SESSION['user_ps'] != "" and (hash_equals($_SESSION['user_ps'], $_SESSION['login_password']) != TRUE)) {
         $_SESSION['bad_combo'] = "*Not a valid email or password";
       }
     }
@@ -62,7 +66,7 @@
       unset($_POST['submit']);
       $_SESSION['authenticated'] = true;
       $_SESSION['login_success'] = "Hey there, Great to see you again!";
-      $_SESSION['login_email'] = $_SESSION['login_password'] = "";
+      $_SESSION['login_email'] = $_SESSION['login_password'] = $_SESSION['user_ps'] = $_SESSION['username'] = "";
     }
   }
 

@@ -3,7 +3,11 @@
   $_SESSION['authenticated'];
 ?>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="slideShow.JS"> </script>
   <title>Seasonal Improvements</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap" rel="stylesheet">
   <link href="pics/fav.JPG" type="image" rel="shortcut icon">
   <link rel="stylesheet" type="text/css" href="main.css?v=<?php echo time(); ?>" />
   <meta charset="utf-8">
